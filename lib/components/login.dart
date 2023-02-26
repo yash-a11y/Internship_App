@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:newui/components/forgotpass.dart';
 import 'package:newui/components/signup.dart';
+import 'package:newui/components/user/dashboard.dart';
 
 import '../utills/app_styles.dart';
 
@@ -338,6 +339,11 @@ class _LoginState extends State<Login> {
                                 });
                                
                                 print("${emailController.text.toString()}");
+
+                                Navigator.pushReplacement(context, 
+                                PageRouteBuilder(pageBuilder: (context,a,b) => Dashboard(),
+                                              transitionDuration: Duration.zero)
+                                );
                         }, 
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Styles.primary1,

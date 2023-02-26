@@ -6,6 +6,7 @@ import 'package:newui/components/login.dart';
 import '../utills/app_styles.dart';
 
 class SplashScreen extends StatefulWidget {
+  
   const SplashScreen({super.key});
 
   @override
