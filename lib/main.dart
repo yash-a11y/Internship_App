@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newui/components/splashscreen.dart';
+import 'package:newui/splashscreen.dart';
+
 
 void main() {
   runApp(const MyApp());

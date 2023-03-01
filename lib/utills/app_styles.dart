@@ -26,6 +26,8 @@ class Styles{
     fontSize: 26,color: textcolor,fontWeight: FontWeight.bold,fontFamily: "DMSans");
     static TextStyle headlinestyle0 = TextStyle(
     fontSize: 21,color: textcolor,fontWeight: FontWeight.bold,fontFamily: "DMSans");
+     static TextStyle headlinestyle1 = TextStyle(
+    color: textcolor,fontFamily: "DMSans");
     // static TextStyle headlinestyle1 = TextStyle(
     // fontSize: 17,color: textcolor,fontWeight: FontWeight.w500);
     // static TextStyle smallheadlinestyleb = TextStyle(

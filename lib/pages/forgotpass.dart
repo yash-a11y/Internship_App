@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:newui/components/login.dart';
 
-import '../utills/app_styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+
+import '../../utills/app_styles.dart';
+import 'login.dart';
+
+class ForgotPassword extends StatefulWidget {
+  final  String email;
+  const ForgotPassword({Key ? key , required this.email}) : super(key: key);
   
   @override
-  State<StatefulWidget> createState() => _SignUpState();
+  State<StatefulWidget> createState() => _ForgotPasswordState();
   
  
 }
 
-class _SignUpState extends State<SignUp> {
-
-  final emailController = TextEditingController();
+class _ForgotPasswordState extends State<ForgotPassword> {
+   
+  final passwordController0 = TextEditingController();
   final passwordController = TextEditingController();
-  bool _valide = false;
+  bool _validp0 = false;
    bool _validp = false;
 
   @override
@@ -26,18 +32,20 @@ class _SignUpState extends State<SignUp> {
   {
     super.dispose();
     
-    emailController.dispose();
+    passwordController0.dispose();
     passwordController.dispose();
     
   }
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 110),
-          shrinkWrap: true,
+          padding: const EdgeInsets.symmetric(vertical: 150),
+          physics: NeverScrollableScrollPhysics(),
           
           children: [
+
             Container(
               height: 80,
               width: 80,
@@ -67,7 +75,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   
-                  Text("Create new account",style: Styles.smallheadlinestyle,)
+                  Text("Reset your password",style: Styles.smallheadlinestyle,)
                   
 
                 ],
@@ -75,7 +83,7 @@ class _SignUpState extends State<SignUp> {
             )
             ,
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 40),
               child: Form(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,56 +96,25 @@ class _SignUpState extends State<SignUp> {
                       //     style: TextStyle(color: Styles.textcolor),
                       //   ),
                       // ),
-
-                      Text(
-                          "UserName",
-                          style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
-                        ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 19,top: 5),
-                      child: TextFormField(
-                        
-                        
-                        style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
-                        autocorrect: false,
-                    
-                        decoration: InputDecoration(
-                           
-                    
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Styles.secondary),
-                            ),
-                    
-                            // errorBorder: OutlineInputBorder(borderSide:BorderSide(color: Colors.red) )
-                    
-                        
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10)
-
-                              ),
-                            
-                             
-                            
-                            prefixIcon:  Icon(Icons.person ,color:  Styles.primarycolor),
-                          
-                        ),
-
-                       
-                    
-                    
+                      
+                      Row(
+                        children: [
+                          Text("changing password for:", style: Styles.smallheadlinestyle.copyWith(fontSize: 16),),
+                          Text("xyz@gmail.com", style: Styles.smallheadlinestyle.copyWith(fontSize: 16,fontWeight: FontWeight.bold),),
+                        ],
                       ),
-                    )
-
-                      ,
-                     Text(
-                          "Email",
-                          style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
-                        ),
+                     Padding(
+                       padding: const EdgeInsets.only(top: 5),
+                       child: Text(
+                            "New Password",
+                            style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
+                          ),
+                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 19,top: 5),
                       child: TextFormField(
                         
-                        controller: emailController,
+                        controller: passwordController,
                         style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
                         autocorrect: false,
                     
@@ -157,16 +134,16 @@ class _SignUpState extends State<SignUp> {
                               ),
                             
                               errorStyle: TextStyle(color: Colors.red, fontSize: 13),
-                              errorText:  _valide?"Enter valid email":null,
+                              errorText:  _validp?"Password length not less than five":null,
                             
-                            prefixIcon:  Icon(Icons.email_outlined,color:  Styles.primarycolor),
+                            prefixIcon:  Icon(Icons.security,color:  Styles.primarycolor),
                           
                         ),
 
                         onFieldSubmitted: (value)  {
                 
                               setState(() {
-                                emailController.text = value.toString();
+                                passwordController.text = value.toString();
                               });
                           },
                     
@@ -180,19 +157,17 @@ class _SignUpState extends State<SignUp> {
                       children: [
 
                          Text(
-                          "Password",
+                          "Confirm Password",
                           style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
                         ),
-
-                    
                       ],
                     )
                     ,
                       Padding(
-                            padding: const EdgeInsets.only(top: 5),
+                            padding: const EdgeInsets.only(top: 0),
                             child: TextFormField(
 
-                             controller: passwordController,       
+                             controller: passwordController0,       
                              style: Styles.smallheadlinestyle.copyWith(fontSize: 18),
                              autocorrect: false,
                                 
@@ -212,7 +187,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                             
                               errorStyle: TextStyle(color: Colors.red, fontSize: 13),
-                              errorText: _validp? "Password Length not less than five":null,
+                              errorText: _validp0? "Password Not match":null,
                             
                             prefixIcon:  Icon(Icons.security_rounded,color:  Styles.primarycolor),
                                                   
@@ -220,7 +195,7 @@ class _SignUpState extends State<SignUp> {
                             
                               onFieldSubmitted: (val){
                                           setState(() {
-                                            passwordController.text = val.toString();
+                                            passwordController0.text = val.toString();
                                           });
                                         },      
                               
@@ -231,30 +206,34 @@ class _SignUpState extends State<SignUp> {
                     ,
                    
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      padding: const EdgeInsets.only(top: 30,bottom: 30),
                       child: ElevatedButton(
                         onPressed: ()
                         {
                             setState(() {
-                                   if(emailController.text.toString().isEmpty || !emailController.text.toString().contains("@"))
-                                  {
-                                  _valide = true;
-                                  }
-                                  else
-                                  {
-                                    _valide = false;
-                                  }
+                                   
                                  if(passwordController.text.toString().length < 5)
                                 {
                                   _validp = true;
                                 }
+                                else if(passwordController0.text.toString().isEmpty)
+                                {
+                                   _validp0 = true;
+                                   _validp = false;
+
+                                }
+                                else if(passwordController0.text.toString() != passwordController.text.toString()){
+                                    _validp0 = true;
+                                }
                                 else
                                 {
+                                 _validp0 = false;
                                  _validp = false;
                                 }
+
                                 });
                                
-                                print("${emailController.text.toString()}");
+                                
                         }, 
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Styles.primary1,
@@ -268,35 +247,25 @@ class _SignUpState extends State<SignUp> {
                           )
                         )
                        ),
-                       child: Text("Sign Up",style: Styles.headlinestyle0.copyWith(color: Colors.white),)),
+                       child: Text("Change Password",style: Styles.headlinestyle0.copyWith(color: Colors.white),)),
                     )
-                    ,Stack
-                    (
-                        children: [Divider(
-                        color: Styles.secondary,
                     
-                      ),
-
-                    
-                       Center(
-                         child: Container(
-                               
-                               color: Colors.white,
-                              child: Text("OR",style: Styles.smallheadlinestyle,),
-                          ),
-                       ),
-                      
-                    ]  )
                     
                     ,
                      
-                     const SizedBox(height: 15,)
+                     const SizedBox(height: 5,),
+                    
+                     Divider(
+                      color: Styles.secondary1,
+
+                     )
                      ,
+                      const SizedBox(height: 5,),
                      Container(child: 
                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Already have an account?",style : Styles.smallheadlinestyle.copyWith(fontSize: 18)),
+                          Text("Back to?",style : Styles.smallheadlinestyle.copyWith(fontSize: 18)),
                            TextButton(
                                   onPressed: () => {
                                         Navigator.pushAndRemoveUntil(
@@ -306,7 +275,7 @@ class _SignUpState extends State<SignUp> {
                                                 transitionDuration: Duration(seconds: 0)),
                                             (route) => false)
                                       },
-                                      child: Text('LogIn',style: Styles.smallheadlinestyle),
+                                      child: Text('Login',style: Styles.smallheadlinestyle),
                                 ),
                         ],
                       )),

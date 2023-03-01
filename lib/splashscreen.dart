@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:newui/components/login.dart';
+import 'package:newui/pages/login.dart';
+
 
 import '../utills/app_styles.dart';
 
