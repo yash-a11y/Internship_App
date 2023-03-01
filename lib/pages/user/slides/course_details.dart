@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../utills/app_styles.dart';
 import '../coursedetails/assignment.dart';
 import '../coursedetails/home.dart';
 import '../coursedetails/materials.dart';
 import '../coursedetails/video.dart';
+
 
 class CourseDetails extends StatefulWidget {
   const CourseDetails({super.key});
@@ -39,7 +41,7 @@ class _CourseDetailsState extends State<CourseDetails>
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, inner) => [
           SliverAppBar(
-            backgroundColor: Color(0xff330099),
+            backgroundColor: primary1,
             expandedHeight: 180,
             floating: true,
             pinned: true,
@@ -103,4 +105,13 @@ class _CourseDetailsState extends State<CourseDetails>
   }
 }
 
+
+
+
+
+
+
 // sharedpreference
+
+// => Coursedetails folder
+// use the home.dart, materials.dart, video.dart & assignments.dart
