@@ -6,6 +6,7 @@ import 'package:newui/pages/user/internships/interships.dart';
 import 'package:newui/pages/user/navbar.dart';
 
 import '../../utills/app_styles.dart';
+import 'community/communityhome.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -16,10 +17,10 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  CollectionReference user = FirebaseFirestore.instance.collection('users');
+  // CollectionReference user = FirebaseFirestore.instance.collection('users');
 
-  final name = FirebaseAuth.instance.currentUser!.displayName;
-  final email = FirebaseAuth.instance.currentUser!.email;
+  // final name = FirebaseAuth.instance.currentUser!.displayName;
+  // final email = FirebaseAuth.instance.currentUser!.email;
 
   @override
   Widget build(BuildContext context) {
@@ -203,7 +204,9 @@ class _CardListState extends State<CardList> {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,MaterialPageRoute(builder: (context) => CommunityHome()));
+          },
           child: Container(
 
             padding: const EdgeInsets.all(3),
@@ -342,28 +345,28 @@ class _CoursesState extends State<Courses> {
           SizedBox(
             height: 5,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 1.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 1.0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
               
-              children: [
-                Text(
-                  'My Learning',
-                  textAlign: TextAlign.left,
-                  style: Styles.headlinestyle.copyWith(
+          //     children: [
+          //       Text(
+          //         'My Learning',
+          //         textAlign: TextAlign.left,
+          //         style: Styles.headlinestyle.copyWith(
                     
-                    fontSize: 20,
-                    color: Styles.textcolor
-                  ),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
+          //           fontSize: 20,
+          //           color: Styles.textcolor
+          //         ),
+          //       ),
+          //       IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 20,
+          // ),
           Container(
                margin: const EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(

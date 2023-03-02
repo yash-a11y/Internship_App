@@ -55,7 +55,7 @@ class _EventsListState extends State<EventsList>
                           Text(
                             "Events",
                             style: Styles.headlinestyle.copyWith(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white),
                           )
                         ],
                       ),

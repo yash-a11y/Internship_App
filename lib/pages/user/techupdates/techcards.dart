@@ -96,7 +96,9 @@ class TechCard2 extends StatelessWidget {
                             top: 50,
                             left: 130,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                 Navigator.push(context, MaterialPageRoute(builder: (context) => TechVideo()));
+                              },
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
