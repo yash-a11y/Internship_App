@@ -1,13 +1,8 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:firebase_core/firebase_core.dart';
 
 class Assignment extends StatefulWidget {
   const Assignment({super.key});
@@ -69,25 +64,27 @@ class UploadPdf extends StatefulWidget {
 }
 
 class UploadPdfState extends State<UploadPdf> {
-  File? _pdf;
-  String? _pdfName;
+  // File? _pdf;
+  // String? _pdfName;
 
-  Future getPdf() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['pdf'],
-    );
+   FilePickerResult? result;
 
-    if (result == null) {
-      // User canceled the picker
-      return;
-    }
+  // Future getPdf() async {
+   
 
-    setState(() {
-      _pdf = File(result.files.single.path!);
-      _pdfName = result.files.single.name;
-    });
-  }
+  //   FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: true);
+ 
+  //     if (result != null) {
+  //       List<File> files = result.paths.map((path) => File(path!)).toList();
+  //     } else {
+  //       print("No file selected");
+  //     }
+
+  //   setState(() {
+  //     _pdf = File(result!.files.single.path!);
+  //     _pdfName = result.files.single.name;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -100,26 +97,44 @@ class UploadPdfState extends State<UploadPdf> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             
-            _pdf == null
-                ? Text('No PDF selected.')
-                : Column(
-                    children: [
-                      TextButton(
-                          onPressed: () async{
-                            
-                          },
-                          child: Text('$_pdfName'))
-                    ],
-                  ),
+            Center(
+              child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                           const Text('Selected file:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: result?.files.length ?? 0,
+                              itemBuilder: (context, index) {
+                            return Text(result?.files[index].name ?? '', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold));
+                          })
+                        ],
+                      ),),
+            ),
             SizedBox(height: 20.0),
             ElevatedButton(
-              onPressed: getPdf,
+              onPressed:  () async{
+                     result = await FilePicker.platform.pickFiles(allowMultiple: true );
+                      if (result == null) {
+                          print("No file selected");
+                        } else {
+                        setState(() {
+                        });
+                         result?.files.forEach((element) {
+                           print(element.name);
+                         });
+                        }
+                  },
               child: Text('Select PDF'),
             ),
             SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                // Implement uploading logic here
+                // Implement upl
+                //Navoading logic here
+                
               },
               child: Text('Upload PDF'),
             ),
