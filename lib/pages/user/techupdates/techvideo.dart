@@ -78,6 +78,7 @@ class _TechVideoState extends State<TechVideo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9),
                     color: Styles.secondary,

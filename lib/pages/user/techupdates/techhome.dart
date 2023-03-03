@@ -81,6 +81,7 @@ class _TechHomeState extends State<TechHome> {
           body: SizedBox(
             child: ListView(
               shrinkWrap: true,
+              
               scrollDirection: Axis.vertical,
               children: [
                 TechCard1(),

@@ -163,12 +163,21 @@ class _LoginState extends State<Login> {
                           
                         ),
 
-                        onFieldSubmitted: (value)  {
+                                        validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please Enter Email';
+                  } else if (!value.contains('@')) {
+                    return 'Please Enter Valid Email id';
+                  }
+                  return null;
+                }
+
+                        // onFieldSubmitted: (value)  {
                 
-                              setState(() {
-                                emailController.text = value.toString();
-                              });
-                          },
+                        //       setState(() {
+                        //         emailController.text = value.toString();
+                        //       });
+                        //   },
                     
                     
                       ),
@@ -340,11 +349,17 @@ class _LoginState extends State<Login> {
                                                   
                                                 ),
                             
-                              onFieldSubmitted: (val){
-                                          setState(() {
-                                            passwordController.text = val.toString();
-                                          });
-                                        },      
+                                            validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please Enter Email';
+                  } 
+                  return null;
+                }
+                              // onFieldSubmitted: (val){
+                              //             setState(() {
+                              //               passwordController.text = val.toString();
+                              //             });
+                              //           },      
                               
                         
                                               ),
@@ -357,21 +372,22 @@ class _LoginState extends State<Login> {
                       child: ElevatedButton(
                         onPressed: ()
                         {
-                            setState(() {
-                                         // Validate returns true if the form is valid, otherwise false.
-                            if (_formKey.currentState!.validate()) {
-                              setState(() {
-                                email = emailController.text;
-                                password = passwordController.text;
-                              });
-                             }
-                              });
-                              userLogin();
+                            // setState(() {
+                            //              // Validate returns true if the form is valid, otherwise false.
+                            // if (_formKey.currentState!.validate()) {
+                            //   setState(() {
+                            //     email = emailController.text;
+                            //     password = passwordController.text;
+                            //   });
+                            //   userLogin();
+                            //  }
+                            //   });
+                              
                                
 
-                                // Navigator.pushReplacement(context, 
-                                // PageRouteBuilder(pageBuilder: (context,a,b) => Dashboard(),
-                                //               transitionDuration: Duration.zero)
+                                Navigator.pushReplacement(context, 
+                                PageRouteBuilder(pageBuilder: (context,a,b) => Dashboard(),
+                                              transitionDuration: Duration.zero));
 
                                              
                                 
@@ -436,154 +452,5 @@ class _LoginState extends State<Login> {
                 ) ),
             )
           ],
-      ),);
-  
-    //   body: Form(
-    //     key: _formKey,
-    //     child: ListView(
-    //       children: [
-    //         SizedBox(
-    //           height: 40,
-    //         ),
-    //         Container(
-    //           height: 180,
-    //           width: 180,
-    //           decoration: BoxDecoration(
-    //               image: DecorationImage(
-    //                   image: AssetImage("assets/images/logo.png"))),
-    //         ),
-    //         Center(
-    //           child: Column(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               Container(
-    //                 width: 190,
-    //                 height: 50,
-    //                 decoration: const BoxDecoration(
-    //                     image: DecorationImage(
-    //                         fit: BoxFit.contain,
-    //                         image: AssetImage("assets/images/TIHb.png"))),
-    //               ),
-    //               SizedBox(
-    //                 height: 10,
-    //               ),
-    //               Text(
-    //                 "Log In your account",
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //         SizedBox(
-    //           height: 20,
-    //         ),
-    //         Container(
-    //           margin: EdgeInsets.fromLTRB(50, 0, 50, 10),
-    //           child: TextFormField(
-    //             autofocus: false,
-    //             decoration: InputDecoration(
-    //               labelText: 'Email : ',
-    //               prefixIcon: Icon(Icons.email_outlined),
-    //               labelStyle: TextStyle(fontSize: 20.0),
-    //               border: OutlineInputBorder(),
-    //               errorStyle: TextStyle(color: Colors.redAccent, fontSize: 15),
-    //             ),
-    //             // controller: emailController,
-    //             validator: (value) {
-    //               if (value == null || value.isEmpty) {
-    //                 return 'Please Enter Email';
-    //               } else if (!value.contains('@')) {
-    //                 return 'Please Enter Valid Email id';
-    //               }
-    //               return null;
-    //             },
-    //           ),
-    //         ),
-    //         Container(
-    //           margin: EdgeInsets.fromLTRB(50, 10, 50, 10),
-    //           child: TextFormField(
-    //             autofocus: false,
-    //             obscureText: true,
-    //             decoration: InputDecoration(
-    //               labelText: 'Password : ',
-    //               prefixIcon: Icon(Icons.security),
-    //               labelStyle: TextStyle(fontSize: 20.0),
-    //               border: OutlineInputBorder(),
-    //               errorStyle: TextStyle(color: Colors.redAccent, fontSize: 15),
-    //             ),
-    //             controller: passwordController,
-    //             validator: (value) {
-    //               if (value == null || value.isEmpty) {
-    //                 return 'Please Enter Password';
-    //               }
-    //               return null;
-    //             },
-    //           ),
-    //         ),
-    //         Container(
-    //           //margin: EdgeInsets.only(left: 60),
-    //           child: Row(
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               ElevatedButton(
-    //                 onPressed: () {
-    //                   // Validate returns true if the form is valid, otherwise false.
-    //                   // if (_formKey.currentState!.validate()) {
-    //                   //   setState(() {
-    //                   //     email = emailController.text;
-    //                   //     password = passwordController.text;
-    //                   //   });
+      ),);}} 
 
-    //                   Navigator.push(context,MaterialPageRoute(builder: (context) =>  Dashboard()));
-    //                   //userLogin()
-    //                   //}
-    //                 },
-    //                 child: Text(
-    //                   'Log In',
-    //                   style: TextStyle(
-    //                       fontSize: 25.0,
-    //                       fontFamily: AutofillHints.addressCity),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //         TextButton(
-    //           onPressed: () {},
-    //           child: Text(
-    //             'Forgot Password ? ',
-    //             style: TextStyle(fontSize: 14.0),
-    //           ),
-    //         ),
-    //         SizedBox(height: 130),
-    //         Container(
-    //           child: Row(
-
-    //             mainAxisAlignment: MainAxisAlignment.center,
-    //             children: [
-    //               Text("New to Techno IT Hub ? "),
-    //               TextButton(
-    //                 onPressed: () => {
-    //                   Navigator.pushAndRemoveUntil(
-    //                       context,
-    //                       PageRouteBuilder(
-    //                           pageBuilder: (context, a, b) => Signup(),
-    //                           transitionDuration: Duration(seconds: 0)),
-    //                       (route) => false)
-    //                 },
-    //                 child: Text('Signup'),
-    //               ),
-    //             ],
-    //           ),
-    //         )
-    //       ],
-    //     ),
-    //   ),
-    // );
-  }
-
-}
-
-
-
-// go to the signup page if user not register  -- signup.dart
-// go to dashboard page -- dashboard.dart

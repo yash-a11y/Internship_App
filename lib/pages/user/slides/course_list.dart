@@ -136,17 +136,23 @@ class _CourseState extends State<Course> {
                             SizedBox(height: 10.0),
                         itemCount: courses.length,
                         itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text('Course : ' +
-                                snapshot.data![index].course.toString()),
-                            tileColor: Colors.grey[200],
-                            contentPadding: EdgeInsets.all(5),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CourseDetails()));
-                            },
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Styles.primary1,
+                              borderRadius: BorderRadius.circular(9)
+                            ),
+                            child: ListTile(
+                              title: Text('Course : ' +
+                                  snapshot.data![index].course.toString(),style: TextStyle(color: Colors.white),),
+                              tileColor: Colors.white,
+                              contentPadding: EdgeInsets.all(5),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CourseDetails()));
+                              },
+                            ),
                           );
                         });
                   }),

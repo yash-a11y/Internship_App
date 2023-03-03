@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newui/pages/user/slides/pdfview.dart';
 
 class Materials extends StatefulWidget {
   const Materials({super.key});
@@ -11,45 +12,30 @@ class _MaterialsState extends State<Materials> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
       child: Column(
         children: [
-          ListTile(
+
+          TextButton(onPressed:(){ Navigator.push(context, MaterialPageRoute(builder: ((context) => PdfView(pdfname: "android_dev",))));}, 
+          child: ListTile(
+            
             leading: Icon(Icons.picture_as_pdf_rounded),
-            title: Text("pdf 1"),
+            title: Text("android_development.pdf"),
             tileColor: Colors.grey[200],
-          ),
+          ),),
+          
+         
           SizedBox(
             height: 2,
           ),
-          ListTile(
+
+          TextButton(onPressed:(){ Navigator.push(context, MaterialPageRoute(builder: ((context) => PdfView(pdfname: "android_cheat",))));}, 
+          child: ListTile(
             leading: Icon(Icons.picture_as_pdf_rounded),
-            title: Text("pdf 2"),
+            title: Text("android_cheatSheat.pdf"),
             tileColor: Colors.grey[200],
-          ),
-          SizedBox(
-            height: 2,
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf_rounded),
-            title: Text("pdf 3"),
-            tileColor: Colors.grey[200],
-          ),
-          SizedBox(
-            height: 2,
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf_rounded),
-            title: Text("pdf 4"),
-            tileColor: Colors.grey[200],
-          ),
-          SizedBox(
-            height: 2,
-          ),
-          ListTile(
-            leading: Icon(Icons.picture_as_pdf_rounded),
-            title: Text("pdf 5"),
-            tileColor: Colors.grey[200],
-          ),
+          ),),
+          
         ],
       ),
     );

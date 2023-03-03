@@ -25,11 +25,42 @@ class UpEventView extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 expandedHeight: 125.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text("Heading 1",
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                    Text("Heading 1",
                       style: Styles.headlinestyle.copyWith(
                           color: Colors.white,
                           fontSize: 18,
-                          fontWeight: FontWeight.bold)),
+                          fontWeight: FontWeight.bold))
+                          ,
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  child: SizedBox(
+                                                
+                                                height: 30,
+                                                width: 80,
+                                                child: ElevatedButton(
+                                                  onPressed: () {
+                                                    },
+                                                  style: ElevatedButton.styleFrom(
+                                                      backgroundColor: Colors.white,
+                                                      shape: const RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.only(
+                                                        topLeft: Radius.circular(25),
+                                                        topRight: Radius.circular(10),
+                                                        bottomRight: Radius.circular(25),
+                                                        bottomLeft: Radius.circular(25),
+                                                      ))),
+                                                  child: Text(
+                                                    "Apply",
+                                                    style: Styles.smallheadlinestyle.copyWith(color : Styles.primary1,fontSize: 11),
+                                                  ),
+                                                ),
+                                              ),
+                                )
+           
+                  ],),
                   background: Stack(children: [
                     Positioned(
                         top: -30,
@@ -70,7 +101,7 @@ class UpEventView extends StatelessWidget {
                             : null),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   Container(
                     padding:
@@ -115,28 +146,28 @@ class UpEventView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
-                    width: 70,
+                  // SizedBox(
+                  //   height: 50,
+                  //   width: 70,
                   
-                    child: ElevatedButton(
+                  //   child: ElevatedButton(
                       
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(25),
-                            topRight: Radius.circular(25),
-                            bottomRight: Radius.circular(25),
-                            bottomLeft: Radius.circular(25),
-                          ))),
-                      child: Text(
-                        "Apply",
-                        style: Styles.smallheadlinestyle.copyWith(color: primary1),
-                      ),
-                    ),
-                  )
+                  //     onPressed: () {},
+                  //     style: ElevatedButton.styleFrom(
+                  //         backgroundColor: Colors.white,
+                  //         shape: const RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.only(
+                  //           topLeft: Radius.circular(25),
+                  //           topRight: Radius.circular(25),
+                  //           bottomRight: Radius.circular(25),
+                  //           bottomLeft: Radius.circular(25),
+                  //         ))),
+                  //     child: Text(
+                  //       "Apply",
+                  //       style: Styles.smallheadlinestyle.copyWith(color: primary1),
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
             ),

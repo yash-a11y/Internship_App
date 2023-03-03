@@ -6,6 +6,7 @@ import 'package:newui/pages/user/internships/viewapplyform.dart';
 
 import '../../../extra/info.dart';
 import '../../../utills/app_styles.dart';
+import 'availableintern.dart';
 
 
 class Interships extends StatefulWidget {
@@ -13,10 +14,29 @@ class Interships extends StatefulWidget {
 
   @override
   State<Interships> createState() => _IntershipsState();
+  
 }
 
-class _IntershipsState extends State<Interships> {
+class _IntershipsState extends State<Interships> with SingleTickerProviderStateMixin {
+      
+              late TabController _tabController;
+
   @override
+  void initState() {
+    _tabController = TabController(
+      length: 2,
+      vsync: this,
+    ); // this controller define how many tabs to represent
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+  @override  
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
@@ -24,7 +44,7 @@ class _IntershipsState extends State<Interships> {
         headerSliverBuilder: (context, inner) => [
           SliverAppBar(
             backgroundColor: primary1,
-            expandedHeight: 140,
+            expandedHeight: 150,
             floating: true,
             pinned: true,
             automaticallyImplyLeading: false,
@@ -45,28 +65,45 @@ class _IntershipsState extends State<Interships> {
                       height: 10,
                     ),
                     Text("offers by Techno It Hub",
-                        style:  Styles.headlinestyle.copyWith(fontSize: 15,color : Colors.white),)
+                        style:  Styles.headlinestyle.copyWith(fontSize: 15,color : Colors.white),),
+                        SizedBox(
+                      height: 15,
+                    ),
                   ],
                 ),
               ),
             ),
+              bottom: TabBar(
+                    controller: _tabController,
+                    labelPadding: EdgeInsets.zero,
+                    tabs: [
+                      Container(
+                        width: 120,
+                        child: Tab(
+                          text: 'Available',
+                        ),
+                      ),
+                      Container(
+                          width: 120, child: Tab(text: 'Applied')),
+                    ],
+                  ),
           )
         ],
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children:
-                internshipinfo.map((e) => InternView(interninfo: e)).toList(),
-          ),
-        ),
-      ),
-    );
+        body:  TabBarView(
+            controller: _tabController,
+            children: [
+              AvailIntern(),
+              AppliedIntern(),
+            ],
+          )
+    ));
   }
 }
 
 class InternView extends StatelessWidget {
   final Map<String, dynamic> interninfo;
-  const InternView({super.key, required this.interninfo});
+  final bool isapply;
+  const InternView({super.key, required this.interninfo,required this.isapply});
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +124,37 @@ class InternView extends StatelessWidget {
             style:  Styles.smallheadlinestyle.copyWith(color : Colors.white),
             //Styles.smallheadlinestyle.copyWith(color: Colors.white),
           ),
+          isapply?      Container(
+            margin: const EdgeInsets.only(right: 19),
+           
+            child: SizedBox(
+                 
+                  height: 50,
+                  width: 100,
+                  child: ElevatedButton(
+
+                    onPressed: () {
+                      
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(25),
+                          bottomLeft: Radius.circular(25),
+                        ))),
+                    child: Container(
+                    
+                      child: Text(
+                        "Applied",
+                        style: Styles.smallheadlinestyle.copyWith(color : Styles.primary1),
+                      ),
+                    ),
+                  ),
+                ),
+          ):
           Row(
             children: [
               SizedBox(

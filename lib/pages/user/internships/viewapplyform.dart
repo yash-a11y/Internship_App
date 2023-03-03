@@ -32,7 +32,7 @@ class _InternDetailState extends State<InternDetail> {
                           bottomRight: Radius.circular(9))),
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 9, vertical: 50),
+                        const EdgeInsets.only(left: 9,right : 9,top :80),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -197,7 +197,7 @@ class _ApplyFormState extends State<ApplyForm> {
                       )),
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 9, vertical: 50),
+                         const EdgeInsets.only(left: 9,right : 9,top :80),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
