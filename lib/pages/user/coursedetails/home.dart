@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utills/app_styles.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -16,35 +18,83 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.all(15),
           child: Column(
             children: [
-              ListTile(
-                title: Text(
-                  'Details ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Styles.primary1)
                 ),
-                subtitle: Text(
-                  'Flutter is a popular mobile app development framework that allows developers to build high-quality, cross-platform apps with ease. With its easy-to-use interface and powerful features, its no wonder why Flutter has become a go-to tool for many app developers. If you are interested in learning more about Flutter, there are plenty of courses available to help you get started. Here are a few benefits of taking a Flutter course:',
-                  style: TextStyle(fontSize: 20, height: 1.3),
+                child: ListTile(
+                  title: Text(
+                    'Details',
+                    style: Styles.headlinestyle.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle:Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("\nIn this program, you’ll learn:\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17),),
+                      Text("> Essential Android programming concepts and the tools needed to develop applications\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> How to use the Kotlin Playground\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> Create user interfaces (UI) for mobile apps using Android Studio\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> Manage the lifecycle and data collections of mobile applications \n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> Work with web technologies and persistent data on Android applications\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17))
+                      
+                    ],
+                  ),
+                  tileColor: Colors.grey[200],
                 ),
-                tileColor: Colors.grey[200],
               ),
               SizedBox(
                 height: 20,
               ),
-              ListTile(
-                title: Text(
-                  'Benefits',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+              Container(
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Styles.primary1)
                 ),
-                subtitle: Text(
-                  "Cross-platform development: Flutter allows you to create mobile apps for both Android and iOS platforms with a single codebase, which means you don't have to write separate code for each platform. This can save development time and reduce costs.",
-                  style: TextStyle(fontSize: 20, height: 1.3),
+                child: ListTile(
+                  title: Text(
+                    'Perks\n',
+                      style: Styles.headlinestyle.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("> Earn a Certificate upon completion\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17),),
+                      Text("> Start instantly and learn at your own schedule.\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> No prior experience required.\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                      Text("> Hand on assigemnts on daily basis\n",style: Styles.smallheadlinestyle.copyWith(fontSize: 17)),
+                     
+                    ],
+                  ),
+                  tileColor: Colors.grey[200],
                 ),
-                tileColor: Colors.grey[200],
               ),
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Enrol Now"))
+                Padding(
+                      padding: const EdgeInsets.only(top: 5,bottom: 5),
+                      child: ElevatedButton(
+                        onPressed: ()
+                        {
+                       
+                                             
+                                
+                        }, 
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Styles.secondary,
+                          minimumSize: const Size(130,45),
+                          shape: const RoundedRectangleBorder(
+                             borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(25),
+                                  bottomRight: Radius.circular(25),
+                                  bottomLeft: Radius.circular(25),
+                          )
+                        )
+                       ),
+                       child: Text("Enroll Now",style: Styles.headlinestyle0.copyWith(color: Colors.white),)),
+                    )
             ],
           ),
         ),
