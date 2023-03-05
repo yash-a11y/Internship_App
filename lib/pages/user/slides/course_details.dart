@@ -36,60 +36,64 @@ class _CourseDetailsState extends State<CourseDetails>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    
+     return Scaffold(
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, inner) => [
-          SliverAppBar(
-            backgroundColor: primary1,
-            expandedHeight: 180,
-            floating: true,
-            pinned: true,
-            automaticallyImplyLeading: false,
-            // snap: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top + 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "SliverAppBar Title",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          SliverOverlapAbsorber(
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+              sliver: SliverSafeArea(
+                top: false,
+                sliver : SliverAppBar(
+                
+                backgroundColor: primary1,
+                expandedHeight: 180,
+                floating: true,
+                pinned: true,
+                automaticallyImplyLeading: true,
+                // snap: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Padding(
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).padding.top + 12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Introduction to\nAndroid development",
+                          style:
+                              Styles.headlinestyle.copyWith(fontSize: 19, fontWeight: FontWeight.bold,color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("Mobile development",
+                            style: Styles.smallheadlinestyle.copyWith(color: Colors.white,
+                              fontSize: 15,
+                            )),
+                      ],
                     ),
-                    SizedBox(
-                      height: 10,
+                  ),
+                ),
+                bottom: TabBar(
+                  controller: _tabController,
+                  labelPadding: EdgeInsets.zero,
+                  tabs: [
+                    Container(
+                      width: 60,
+                      child: Tab(
+                        text: 'Home',
+                      ),
                     ),
-                    Text("Subtitle",
-                        style: TextStyle(
-                          fontSize: 15,
-                        )),
+                    Container(width: 60, child: Tab(text: 'Materials')),
+                    Container(width: 60, child: Tab(text: 'Video')),
+                    Container(width: 180, child: Tab(text: 'Assignments')),
                   ],
                 ),
               ),
-            ),
-            bottom: TabBar(
-              controller: _tabController,
-              labelPadding: EdgeInsets.zero,
-              tabs: [
-                Container(
-                  width: 60,
-                  child: Tab(
-                    text: 'Home',
-                  ),
-                ),
-                Container(width: 60, child: Tab(text: 'Materials')),
-                Container(width: 60, child: Tab(text: 'Video')),
-                Container(width: 180, child: Tab(text: 'Assignments')),
-              ],
-            ),
-          ),
-          // SliverFillRemaining(
-          //   child:
-          // )
+           )),
         ],
         body: TabBarView(
           controller: _tabController,
@@ -99,19 +103,8 @@ class _CourseDetailsState extends State<CourseDetails>
             Video(),
             Assignment(),
           ],
-        ),
-      ),
+        ),)
     );
-  }
-}
-
-
-
-
-
-
-
-// sharedpreference
-
-// => Coursedetails folder
-// use the home.dart, materials.dart, video.dart & assignments.dart
+ 
+  }}
+    
