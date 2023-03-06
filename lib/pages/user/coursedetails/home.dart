@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utills/app_styles.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final bool isEnroll;
+  const Home({super.key,required this.isEnroll});
 
   @override
   State<Home> createState() => _HomeState();
@@ -72,6 +73,8 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 20,
               ),
+
+               widget.isEnroll?Container():
                 Padding(
                       padding: const EdgeInsets.only(top: 5,bottom: 5),
                       child: ElevatedButton(

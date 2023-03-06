@@ -136,21 +136,62 @@ class AchiementsView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 150,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          image: imageview != null && imageview!.isNotEmpty
-                              ? new DecorationImage(
-                                  fit: BoxFit.scaleDown,
-                                  image: NetworkImage(imageview!),
-                                )
-                              : null),
+                     SizedBox(
+                      height: 30,
+                    ),
+                    Container
+                    (  padding: const EdgeInsets.symmetric(vertical: 10),
+                       decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Styles.secondary),
+                       ),
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        width: MediaQuery.of(context).size.width,
+                        height: 180,
+                        
+                        decoration: BoxDecoration(
+                             
+                           
+                            image: imageview != null && imageview!.isNotEmpty
+                                ? new DecorationImage(
+                                    fit: BoxFit.scaleDown,
+                                    
+                                    image: NetworkImage(imageview!),
+                                  )
+                                : null),
+                      ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 20,
+                    ),
+
+                     Divider(
+                            color: Styles.secondary,
+                            thickness: 1.5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Details",
+                                style: Styles.headlinestyle.copyWith(color: Styles.textcolor,fontSize: 20,fontWeight: FontWeight.bold
+                                  ),
+                              ),
+                              Text(
+                                "Posted on : $date",
+                                style: Styles.smallheadlinestyle.copyWith(color: Styles.textcolor),
+                              ),
+                            ],
+                          ),
+                          Divider(
+                            color: Styles.secondary,
+                            thickness: 1.5,
+                          ),
+
+                          SizedBox(
+                      height: 20,
                     ),
                     Container(
                       padding:
@@ -160,29 +201,9 @@ class AchiementsView extends StatelessWidget {
                           color: Styles.primary1),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Divider(
-                            color: Styles.secondary,
-                            thickness: 1.5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Summary",
-                                style: Styles.headlinestyle.copyWith(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold
-                                  ),
-                              ),
-                              Text(
-                                "Posted on : $date",
-                                style: Styles.smallheadlinestyle.copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                          Divider(
-                            color: Styles.secondary,
-                            thickness: 1.5,
-                          ),
+                         
                           SizedBox(
                             height: 10,
                           ),

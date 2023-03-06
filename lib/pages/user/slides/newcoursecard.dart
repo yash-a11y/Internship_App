@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:newui/pages/user/slides/notenrolled.dart';
 import 'package:newui/pages/user/slides/course_details.dart';
 
 import '../../../utills/app_styles.dart';
@@ -74,7 +75,7 @@ class _NewCourseCradState extends State<NewCourseCrad> {
                       child: ElevatedButton(
                         onPressed: ()
                         {
-                                    
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => NotEnrolled()));
                         }, 
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Styles.secondary,

@@ -87,32 +87,32 @@ class UpEventView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 150,
+                  SizedBox(height: 30,),
+                  Container
+                  (  
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        image: imageview != null && imageview!.isNotEmpty
-                            ? new DecorationImage(
-                                fit: BoxFit.scaleDown,
-                                image: NetworkImage(imageview!),
-                              )
-                            : null),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Styles.secondary),
+
+                    ),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 180,
+                      decoration: BoxDecoration(
+                          color: Colors.transparent,
+                         
+                          image: imageview != null && imageview!.isNotEmpty
+                              ? new DecorationImage(
+                                  fit: BoxFit.scaleDown,
+                                  image: NetworkImage(imageview!),
+                                )
+                              : null),
+                    ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 9, horizontal: 9),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(9),
-                        color: Styles.primary1),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Divider(
+                   Divider(
                           color: Styles.secondary,
                           thickness: 1.5,
                         ),
@@ -122,13 +122,13 @@ class UpEventView extends StatelessWidget {
                             Text(
                               "Description",
                               style: Styles.headlinestyle.copyWith(
-                                  color: Colors.white,
+                                  color: Styles.textcolor,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
                               "Event Date : 25/2/2023",
-                              style: Styles.smallheadlinestyle.copyWith(color: Colors.white),
+                              style: Styles.smallheadlinestyle.copyWith(color: Styles.textcolor),
                             ),
                           ],
                         ),
@@ -137,10 +137,24 @@ class UpEventView extends StatelessWidget {
                           thickness: 1.5,
                         ),
                         SizedBox(
+                          height: 30,
+                        ),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 9, horizontal: 9),
+                        width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(9),
+                        color: Styles.primary1),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                       
+                        SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "This event held by the TIH",
+                          "> This event held by the TIH",
                           style: Styles.smallheadlinestyle.copyWith(color: Colors.white, fontSize: 18),
                         ),
                       ],

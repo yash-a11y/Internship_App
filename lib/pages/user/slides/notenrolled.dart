@@ -7,14 +7,14 @@ import '../coursedetails/materials.dart';
 import '../coursedetails/video.dart';
 
 
-class CourseDetails extends StatefulWidget {
-  const CourseDetails({super.key});
+class NotEnrolled extends StatefulWidget {
+  const NotEnrolled({super.key});
 
   @override
-  State<CourseDetails> createState() => _CourseDetailsState();
+  State<NotEnrolled> createState() => _NotEnrolledState();
 }
 
-class _CourseDetailsState extends State<CourseDetails>
+class _NotEnrolledState extends State<NotEnrolled>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -77,33 +77,10 @@ class _CourseDetailsState extends State<CourseDetails>
                     ),
                   ),
                 ),
-                bottom: TabBar(
-                  controller: _tabController,
-                  labelPadding: EdgeInsets.zero,
-                  tabs: [
-                    Container(
-                      width: 60,
-                      child: Tab(
-                        text: 'Home',
-                      ),
-                    ),
-                    Container(width: 60, child: Tab(text: 'Materials')),
-                    Container(width: 60, child: Tab(text: 'Video')),
-                    Container(width: 180, child: Tab(text: 'Assignments')),
-                  ],
-                ),
-              ),
+             ),
            )),
         ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            Home(isEnroll: true),
-            Materials(),
-            Video(),
-            Assignment(),
-          ],
-        ),)
+        body: Home(isEnroll: false,))
     );
  
   }}

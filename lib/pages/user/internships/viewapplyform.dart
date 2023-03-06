@@ -15,153 +15,199 @@ class _InternDetailState extends State<InternDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              children: [
-                Container(
+
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        headerSliverBuilder: (context, inner) => [
+          SliverAppBar(
+            backgroundColor: primary1,
+            expandedHeight: 130,
+            floating: true,
+            pinned: true,
+            automaticallyImplyLeading: false,
+            flexibleSpace:  
+            FlexibleSpaceBar(
+              background : Stack(children: [
+                      Positioned(
+                          top: -30,
+                          right: -40,
+                          child: Container(
+                            padding: const EdgeInsets.all(30),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    width: 19, color: Styles.secondary),
+                                color: Colors.transparent),
+                          )),
+                    ]),
+              title: Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).padding.top + 23),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                            "${widget.information['title']}",
+                            style: Styles.headlinestyle.copyWith(color: Colors.white,fontSize: 19,fontWeight: FontWeight.bold
+                                  ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "${widget.information['subtitle']}",
+                            style: Styles.headlinestyle.copyWith(color: Colors.white,fontSize: 11)
+                                ),
+                    ],
+                  ),
+                  
+        
+              ),
+            ),
+             
+          )
+          
+        ],
+        body:      Center(
+
+          child: ListView(
+                children: [
+                  
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(
+                  color: Styles.secondary,
+                  thickness: 1,
+                ),
+              ),
+                    Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 9),
+                child: Text(
+                  "Details",
+                  style:  Styles.headlinestyle.copyWith(color: Styles.primary1,fontSize: 23,fontWeight: FontWeight.bold
+                                ),
+                          
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(
+                  color: Styles.secondary,
+                  thickness: 1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
+                child: Container(
+                  height: 230,
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Styles.primary1,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        "- Mode :${widget.information['details']['mode']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
+                      ),
+                      Text(
+                        "- Stippen : ${widget.information['details']['stippen']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
+                      ),
+                      Text(
+                        "- Location : ${widget.information['details']['Location']}",
+                        style:Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
+                      ),
+                      Text(
+                        "- Duration : ${widget.information['details']['duration']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
+                      ),
+                      Text(
+                        "- Experience : ${widget.information['details']['exp']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18)
+                      ),
+                      Text(
+                        "- Knowledg about :${widget.information['details']['know']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10,),
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(
+                  color: Styles.secondary,
+                  thickness: 1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 9),
+                child: Text(
+                  "Perks",
+                  style:   Styles.headlinestyle.copyWith(color: Styles.primary1,fontSize: 23,fontWeight: FontWeight.bold
+                                ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(
+                  color: Styles.secondary,
+                  thickness: 1,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
+                child: Container(
                   height: 180,
                   width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Styles.primary1,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(9),
-                          bottomRight: Radius.circular(9))),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 9,right : 9,top :80),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${widget.information['title']}",
-                          style: Styles.headlinestyle.copyWith(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold
-                                ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "${widget.information['subtitle']}",
-                          style: Styles.headlinestyle.copyWith(color: Colors.white,fontSize: 15)
-                              ),
-                        
-                      ],
-                    ),
+                    color: Styles.primary1,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        "${widget.information['perks']['one']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18)   ),
+                      Text(
+                        "${widget.information['perks']['two']}",
+                        style:  Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18) ),
+                      Text(
+                        "${widget.information['perks']['three']}",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      Text(
+                        "${widget.information['perks']['four']}",
+                        style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18) ),
+                    ],
                   ),
                 ),
-                Positioned(
-                  top: -30,
-                  right: -40,
-                  child: Container(
-                    padding: const EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(width: 19, color: Styles.secondary),
-                        color: Colors.transparent),
-                  ),
-                )
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 19),
-              child: Text(
-                "Details",
-                style:  Styles.headlinestyle.copyWith(color: Styles.primary1,fontSize: 23,fontWeight: FontWeight.bold
-                              ),
-                        
-                textAlign: TextAlign.start,
+              )
+            
+                ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
-              child: Container(
-                height: 230,
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Styles.primary1,
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "- Mode :${widget.information['details']['mode']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
-                    ),
-                    Text(
-                      "- Stippen : ${widget.information['details']['stippen']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
-                    ),
-                    Text(
-                      "- Location : ${widget.information['details']['Location']}",
-                      style:Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
-                    ),
-                    Text(
-                      "- Duration : ${widget.information['details']['duration']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
-                    ),
-                    Text(
-                      "- Experience : ${widget.information['details']['exp']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18)
-                    ),
-                    Text(
-                      "- Knowledg about :${widget.information['details']['know']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 19),
-              child: Text(
-                "Perks",
-                style:   Styles.headlinestyle.copyWith(color: Styles.primary1,fontSize: 23,fontWeight: FontWeight.bold
-                              ),
-                textAlign: TextAlign.start,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 8),
-              child: Container(
-                height: 180,
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Styles.primary1,
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "${widget.information['perks']['one']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18)   ),
-                    Text(
-                      "${widget.information['perks']['two']}",
-                      style:  Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18) ),
-                    Text(
-                      "${widget.information['perks']['three']}",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    Text(
-                      "${widget.information['perks']['four']}",
-                      style: Styles.smallheadlinestyle.copyWith(color: Colors.white,fontSize: 18) ),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+        )
+        
+    ));
+ 
+      
+      
+  
   }
 }
 
