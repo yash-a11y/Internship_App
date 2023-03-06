@@ -90,7 +90,7 @@ class _AchiementsHomeState extends State<AchiementsHome> {
                   text1: "CONNECT STARTUP DOTS",
                   text2:
                       "We reached the list of top 25 start-ups in CONNECT START-UP DOTS",
-                  text3: "Connect Startup Dots hosted a two-day event in Ahmedabad with the participation of 25 small start-ups from various sectors ‘making a social impact with technology.’\nDuring the pandemic period, many vendors lost their companies and were struggling to stay afloat, which inspired the idea for the festival. People with remarkable skills have turned to start-ups in these conditions. We sought to connect start-ups with vendors or buyers in MSME sector and help both of them, according to Jayendra Tanna President, Ahmedabad Chamber of Commerce Welfare Foundation.",
+                  text3: "> Connect Startup Dots hosted a two-day event in Ahmedabad with the participation of 25 small start-ups from various sectors ‘making a social impact with technology.’\n\n> During the pandemic period, many vendors lost their companies and were struggling to stay afloat, which inspired the idea for the festival.\n\n> People with remarkable skills have turned to start-ups in these conditions. We sought to connect start-ups with vendors or buyers in MSME sector and help both of them, according to Jayendra Tanna President, Ahmedabad Chamber of Commerce Welfare Foundation.",
                   date: "21/6/2022"
                 ),
                 AchivementsCard(
@@ -99,7 +99,7 @@ class _AchiementsHomeState extends State<AchiementsHome> {
                   text1: "SCIENCE CITY STALL",
                   text2:
                       "We are invited for showcasing our Startup in front of Education Minister of Gujarat Hon. Jeetu Vaghani, Dr. Kuber Dindor and Vice Chancellor of GTU Dr. Navin Sheth.",
-                  text3: "It has exhibits and rides about natural disasters, disaster management, planetarium, natural resources and its conservation.",
+                  text3: "> It has exhibits and rides about natural disasters, disaster management, planetarium, natural resources and its conservation.",
                   date:"18/6/2022"
                 ),
               ],
