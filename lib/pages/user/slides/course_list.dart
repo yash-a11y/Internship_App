@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:newui/pages/user/slides/notenrolled.dart';
+import 'package:newui/pages/user/coursedetails/notenrolled.dart';
 import 'package:newui/pages/user/slides/course_details.dart';
 import 'package:newui/pages/user/slides/newcoursecard.dart';
 

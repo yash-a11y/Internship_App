@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:newui/pages/user/slides/notenrolled.dart';
+import 'package:newui/pages/user/coursedetails/notenrolled.dart';
 import 'package:newui/pages/user/slides/course_details.dart';
 
 import '../../../utills/app_styles.dart';
@@ -27,7 +27,9 @@ class _NewCourseCradState extends State<NewCourseCrad> {
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 10),
       child: TextButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => CourseDetails()));
+          widget.isenroll? 
+         Navigator.push(context, MaterialPageRoute(builder: (context) => CourseDetails())): Navigator.push(context, MaterialPageRoute(builder: (context) => NotEnrolled()));
+          
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
@@ -75,7 +77,7 @@ class _NewCourseCradState extends State<NewCourseCrad> {
                       child: ElevatedButton(
                         onPressed: ()
                         {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => NotEnrolled()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => CourseDetails()));
                         }, 
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Styles.secondary,
